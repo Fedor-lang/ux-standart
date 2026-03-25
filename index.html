@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX Standard | Open Source Template</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <span class="logo__icon">💠</span>
+                <span class="logo__text">UX<span class="text-gradient">Standard</span></span>
+            </div>
+            
+            <ul class="nav__menu">
+                <li><a href="#" class="nav__link active" onclick="route('home', this)">Главная</a></li>
+                <li><a href="#" class="nav__link" onclick="route('docs', this)">База знаний</a></li>
+                <li><a href="#" class="nav__link" onclick="route('components', this)">Компоненты</a></li>
+                <li><a href="#" class="nav__link" onclick="route('stats', this)">Статистика</a></li>
+                <li><a href="#" class="nav__link" onclick="route('profile', this)">Лаборатория</a></li>
+            </ul>
+
+
+            <div class="nav__actions">
+                <!-- Кнопки управления UX — сердце твоего стандарта -->
+                <button onclick="toggleTheme()" class="btn-control" id="theme-btn" title="Сменить тему">
+                    <span class="icon">🌓</span>
+                </button>
+                <button onclick="increaseFont()" class="btn-control" title="Увеличить текст">
+                    <span class="icon">A+</span>
+                </button>
+                <button onclick="toggleDebug()" class="btn-control btn-control--debug" id="debug-btn" title="Режим Рентгена">
+                    <span class="icon">🛠️</span>
+                </button>
+            </div>
+
+            <!-- Мобильное меню (гамбургер) — добавим логику позже -->
+            <button class="menu-toggle" aria-label="Открыть меню">
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="app">
+        <section class="hero">
+            <div class="container hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        Создавай <span class="text-gradient">удобные сайты</span> сразу
+                    </h1>
+                    <p class="hero__subtitle">
+                        Этот макет — фундамент, на котором ты строишь быстрые, понятные и доступные интерфейсы. Используй его как ориентир и превращай идеи в продукты.
+                    </p>
+                    <div class="hero__actions">
+                        <button class="btn btn--primary" onclick="route('profile')">Начать использовать</button>
+                        <button class="btn btn--outline" onclick="route('docs')">Посмотреть код</button>
+                    </div>
+                </div>
+                
+                <!-- Декоративный элемент, который подчеркивает технологичность -->
+                <div class="hero__badge">
+                    <span class="badge__dot"></span>
+                    UX Standard v1.0.0
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container">
+            <div class="footer__col">
+                <h4 class="footer__title">О проекте</h4>
+                <p>Создаём основу для интернета, который удобен, быстр и доступен каждому.</p>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__title">Ресурсы</h4>
+                <ul class="footer__links">
+                    <li><a href="#">Документация WCAG</a></li>
+                    <li><a href="#">Лицензия MIT</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom container">
+            <p>&copy; 2025 UX-Standard. Открытый код для новичков.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <div id="toast-wrapper" class="toast-container"></div>
+    <div class="modal-overlay" id="main-modal" onclick="if(event.target === this) toggleModal(false)">
+        <div class="modal">
+            <h2>Подтверждение</h2>
+            <p style="margin: 15px 0 25px; color: var(--text-secondary);">Вы уверены, что хотите применить эти настройки к вашему проекту?</p>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn--primary" onclick="toggleModal(false); showToast('Принято!')">Да, уверен</button>
+                <button class="btn btn--outline" onclick="toggleModal(false)">Отмена</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
