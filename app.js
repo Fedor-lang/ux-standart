@@ -22,56 +22,45 @@ const PAGES = {
             <h1 class="hero__title" style="font-size: clamp(2.5rem, 6vw, 3.5rem)">
                 База <span class="text-gradient">знаний</span>
             </h1>
-            <p class="hero__subtitle">Глубокое погружение в технологии, которые делают этот стандарт «золотым».</p>
+            <p class="hero__subtitle">Расширенная документация по стандартам разработки и защиты интерфейсов.</p>
             
             <div class="docs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 50px;">
                 
                 <!-- Категория 1: Архитектура -->
                 <div class="docs-col">
-                    <h3 style="margin-bottom: 20px; color: var(--accent-color); display: flex; align-items: center; gap: 10px;">
-                        <span>📐</span> Архитектура SPA
-                    </h3>
-                    <details class="faq-card"><summary>Почему Vanilla JS?</summary>
-                        <p>Отсутствие библиотек (React/Vue) снижает вес страницы в 50 раз. Это критично для пользователей с медленным интернетом.</p>
-                    </details>
-                    <details class="faq-card"><summary>Как работает Роутинг?</summary>
-                        <p>Функция route() подменяет innerHTML контейнера. Браузеру не нужно заново скачивать стили и скрипты при каждом клике.</p>
-                    </details>
-                    <details class="faq-card"><summary>Зачем кэшировать тему?</summary>
-                        <p>Мы используем localStorage, чтобы при обновлении страницы пользователь не получал "вспышку" белого света (FOIT).</p>
-                    </details>
+                    <h3 style="margin-bottom: 20px; color: var(--accent-color);">📐 Архитектура SPA</h3>
+                    <details class="faq-card"><summary>Почему Vanilla JS?</summary><p>Отсутствие тяжелых библиотек снижает вес страницы в 50 раз. Это база для быстрого интернета.</p></details>
+                    <details class="faq-card"><summary>Принцип Single Page</summary><p>Мы меняем только контент внутри тега main. Это экономит ресурсы процессора и батарею смартфона.</p></details>
                 </div>
 
                 <!-- Категория 2: Доступность -->
                 <div class="docs-col">
-                    <h3 style="margin-bottom: 20px; color: var(--accent-color); display: flex; align-items: center; gap: 10px;">
-                        <span>♿</span> Доступность (A11y)
-                    </h3>
-                    <details class="faq-card"><summary>Сила единиц REM</summary>
-                        <p>REM привязан к системным настройкам шрифта. Если пользователю нужно +200% к тексту, наш сайт адаптируется без поломок.</p>
-                    </details>
-                    <details class="faq-card"><summary>Семантическое дерево</summary>
-                        <p>Используя теги header, main и nav, мы строим карту сайта для скринридеров (программ для незрячих).</p>
-                    </details>
-                    <details class="faq-card"><summary>Фокус-менеджмент</summary>
-                        <p>В режиме "Рентген" видно, что каждый интерактивный элемент имеет четкий контур для управления с клавиатуры.</p>
-                    </details>
+                    <h3 style="margin-bottom: 20px; color: var(--accent-color);">♿ Доступность (A11y)</h3>
+                    <details class="faq-card"><summary>Сила единиц REM</summary><p>REM адаптируется под системные настройки зрения. Сайт "растет" вместе с потребностями пользователя.</p></details>
+                    <details class="faq-card"><summary>Семантическое дерево</summary><p>Теги header, main и nav строят карту сайта для программ-дикторов (скринридеров).</p></details>
                 </div>
 
-                <!-- Категория 3: Инженерия UX -->
+                <!-- Категория 3: Инженерия -->
                 <div class="docs-col">
-                    <h3 style="margin-bottom: 20px; color: var(--accent-color); display: flex; align-items: center; gap: 10px;">
-                        <span>🚀</span> Инженерия
-                    </h3>
-                    <details class="faq-card"><summary>Адаптивность clamp()</summary>
-                        <p>Функция clamp() позволяет шрифтам плавно "течь" между размерами мобилки и десктопа без резких скачков.</p>
-                    </details>
-                    <details class="faq-card"><summary>Динамический HSL</summary>
-                        <p>Цвета бренда вычисляются программно. Это гарантирует, что контрастность текста сохранится при любом оттенке.</p>
-                    </details>
-                    <details class="faq-card"><summary>Замер отрисовки</summary>
-                        <p>Мы используем performance.now() для высокоточного замера скорости рендера в миллисекундах.</p>
-                    </details>
+                    <h3 style="margin-bottom: 20px; color: var(--accent-color);">🚀 Инженерия</h3>
+                    <details class="faq-card"><summary>Адаптивность clamp()</summary><p>Функция позволяет шрифтам плавно "течь" между размерами мобилки и десктопа без скачков.</p></details>
+                    <details class="faq-card"><summary>Замер отрисовки</summary><p>Мы используем performance.now() для контроля скорости рендера в реальном времени.</p></details>
+                </div>
+
+                <!-- Категория 4: Мобильный UX -->
+                <div class="docs-col">
+                    <h3 style="margin-bottom: 20px; color: var(--accent-color);">📱 Мобильный UX</h3>
+                    <details class="faq-card"><summary>Touch Targets</summary><p>Минимальный размер кнопок в нашем стандарте — 44x44px, чтобы по ним было легко попасть пальцем.</p></details>
+                    <details class="faq-card"><summary>Отсутствие Hover</summary><p>Логика интерфейса не завязана на наведении мыши, так как на смартфонах этого состояния не существует.</p></details>
+                    <details class="faq-card"><summary>Вес страницы</summary><p>Минимальное количество картинок и сжатый JS гарантируют мгновенный запуск даже в сетях 3G.</p></details>
+                </div>
+
+                <!-- Категория 5: Безопасность -->
+                <div class="docs-col">
+                    <h3 style="margin-bottom: 20px; color: var(--accent-color);">🛡️ Безопасность</h3>
+                    <details class="faq-card"><summary>Защита от XSS</summary><p>Мы не используем опасные функции вроде eval() и следим за тем, как данные попадают в innerHTML.</p></details>
+                    <details class="faq-card"><summary>Local Storage Safety</summary><p>В памяти браузера хранятся только настройки темы, никаких персональных данных пользователя.</p></details>
+                    <details class="faq-card"><summary>Отсутствие трекеров</summary><p>Стандарт не содержит скрытых скриптов аналитики, что гарантирует полную приватность сессии.</p></details>
                 </div>
 
             </div>
