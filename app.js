@@ -197,6 +197,49 @@ const PAGES = {
                 <div class="render-time"><span id="render-val">0</span> <small>ms</small></div>
             </div>
         </section>
+    `,
+    contact: `
+        <section class="container fade-in" style="padding: 120px 0 60px">
+            <h1 class="hero__title" style="font-size: 3rem">Связаться <span class="text-gradient">с автором</span></h1>
+            <p class="hero__subtitle">Есть вопросы по стандарту или идеи для коллаборации? Пиши мне напрямую — я всегда открыт для предложений.</p>
+            
+            <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 50px;">
+                
+                <!-- Telegram: Прямая связь -->
+                <div class="ui-card" style="display: flex; flex-direction: column; align-items: flex-start; border-bottom: 4px solid #0088cc;">
+                    <div style="font-size: 2.5rem; margin-bottom: 20px;">✈️</div>
+                    <h3>Telegram</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 25px; min-height: 40px;">Самый быстрый способ обсудить код или предложить фичу в реальном времени.</p>
+                    <button class="btn btn--primary" style="width: 100%; justify-content: center; background: #0088cc;" onclick="window.open('https://t.me', '_blank')">
+                        Написать @fedor6834
+                    </button>
+                </div>
+
+                <!-- Email: Официальные вопросы -->
+                <div class="ui-card" style="display: flex; flex-direction: column; align-items: flex-start; border-bottom: 4px solid var(--accent-color);">
+                    <div style="font-size: 2.5rem; margin-bottom: 20px;">📧</div>
+                    <h3>Электронная почта</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 25px; min-height: 40px;">Для длинных писем, документации и серьезных предложений по проекту.</p>
+                    <div style="display: flex; gap: 10px; width: 100%;">
+                        <button class="btn btn--outline" style="flex: 1; justify-content: center;" onclick="window.location.href='mailto:burlakovfedor981@gmail.com'">Написать</button>
+                        <button class="btn btn--outline" title="Скопировать" onclick="copyToClipboard('burlakovfedor981@gmail.com')">📋</button>
+                    </div>
+                </div>
+
+                <!-- GitHub: Код проекта -->
+                <div class="ui-card" style="display: flex; flex-direction: column; align-items: flex-start; border-bottom: 4px solid #333;">
+                    <div style="font-size: 2.5rem; margin-bottom: 20px;">🐙</div>
+                    <h3>GitHub Репозиторий</h3>
+                    <p style="font-size: 0.9rem; margin-bottom: 25px; min-height: 40px;">Следи за обновлениями UX-Standard или внеси свой вклад через Pull Requests.</p>
+                    <button class="btn btn--outline" style="width: 100%; justify-content: center;" onclick="window.open('https://github.com', '_blank')">К коду на GitHub</button>
+                </div>
+
+            </div>
+            
+            <div style="margin-top: 4rem; text-align: center; opacity: 0.6; font-size: 0.9rem;">
+                <p>Локация: Красноярск, Россия | Часовой пояс: GMT+7</p>
+            </div>
+        </section>
     `
 };
 
@@ -330,4 +373,15 @@ function switchTab(btn, tabId) {
     const content = document.getElementById('tab-content-demo');
     if (tabId === 1) content.innerText = "Контент первой вкладки: Архитектура системы.";
     if (tabId === 2) content.innerText = "Контент второй вкладки: Настройки доступности.";
+}
+// Функция копирования текста (Email) в буфер обмена
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        // Используем твою функцию уведомлений
+        if (typeof showToast === "function") {
+            showToast('Email скопирован в буфер обмена!');
+        } else {
+            alert('Email скопирован!');
+        }
+    });
 }
