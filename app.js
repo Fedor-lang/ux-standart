@@ -19,18 +19,61 @@ const PAGES = {
     `,
     docs: `
         <section class="container fade-in" style="padding: 120px 0 60px">
-            <h1 class="hero__title" style="font-size: 3rem">База <span class="text-gradient">знаний</span></h1>
-            <div style="margin-top: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div>
-                    <h3 style="color: var(--accent-color); margin-bottom:15px">📐 Архитектура</h3>
-                    <details class="faq-card"><summary>Зачем rem вместо px?</summary><p>rem масштабируется вместе с настройками пользователя. Это база инклюзивности.</p></details>
-                    <details class="faq-card"><summary>Почему SPA?</summary><p>Мгновенная смена страниц экономит время и фокус пользователя.</p></details>
+            <h1 class="hero__title" style="font-size: clamp(2.5rem, 6vw, 3.5rem)">
+                База <span class="text-gradient">знаний</span>
+            </h1>
+            <p class="hero__subtitle">Глубокое погружение в технологии, которые делают этот стандарт «золотым».</p>
+            
+            <div class="docs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-top: 50px;">
+                
+                <!-- Категория 1: Архитектура -->
+                <div class="docs-col">
+                    <h3 style="margin-bottom: 20px; color: var(--accent-color); display: flex; align-items: center; gap: 10px;">
+                        <span>📐</span> Архитектура SPA
+                    </h3>
+                    <details class="faq-card"><summary>Почему Vanilla JS?</summary>
+                        <p>Отсутствие библиотек (React/Vue) снижает вес страницы в 50 раз. Это критично для пользователей с медленным интернетом.</p>
+                    </details>
+                    <details class="faq-card"><summary>Как работает Роутинг?</summary>
+                        <p>Функция route() подменяет innerHTML контейнера. Браузеру не нужно заново скачивать стили и скрипты при каждом клике.</p>
+                    </details>
+                    <details class="faq-card"><summary>Зачем кэшировать тему?</summary>
+                        <p>Мы используем localStorage, чтобы при обновлении страницы пользователь не получал "вспышку" белого света (FOIT).</p>
+                    </details>
                 </div>
-                <div>
-                    <h3 style="color: var(--accent-color); margin-bottom:15px">♿ Доступность</h3>
-                    <details class="faq-card"><summary>Семантика HTML</summary><p>Использование правильных тегов (main, nav) помогает скринридерам.</p></details>
-                    <details class="faq-card"><summary>Фокус клавиатуры</summary><p>В нашем коде каждый элемент имеет четкую обводку при переходе через Tab.</p></details>
+
+                <!-- Категория 2: Доступность -->
+                <div class="docs-col">
+                    <h3 style="margin-bottom: 20px; color: var(--accent-color); display: flex; align-items: center; gap: 10px;">
+                        <span>♿</span> Доступность (A11y)
+                    </h3>
+                    <details class="faq-card"><summary>Сила единиц REM</summary>
+                        <p>REM привязан к системным настройкам шрифта. Если пользователю нужно +200% к тексту, наш сайт адаптируется без поломок.</p>
+                    </details>
+                    <details class="faq-card"><summary>Семантическое дерево</summary>
+                        <p>Используя теги header, main и nav, мы строим карту сайта для скринридеров (программ для незрячих).</p>
+                    </details>
+                    <details class="faq-card"><summary>Фокус-менеджмент</summary>
+                        <p>В режиме "Рентген" видно, что каждый интерактивный элемент имеет четкий контур для управления с клавиатуры.</p>
+                    </details>
                 </div>
+
+                <!-- Категория 3: Инженерия UX -->
+                <div class="docs-col">
+                    <h3 style="margin-bottom: 20px; color: var(--accent-color); display: flex; align-items: center; gap: 10px;">
+                        <span>🚀</span> Инженерия
+                    </h3>
+                    <details class="faq-card"><summary>Адаптивность clamp()</summary>
+                        <p>Функция clamp() позволяет шрифтам плавно "течь" между размерами мобилки и десктопа без резких скачков.</p>
+                    </details>
+                    <details class="faq-card"><summary>Динамический HSL</summary>
+                        <p>Цвета бренда вычисляются программно. Это гарантирует, что контрастность текста сохранится при любом оттенке.</p>
+                    </details>
+                    <details class="faq-card"><summary>Замер отрисовки</summary>
+                        <p>Мы используем performance.now() для высокоточного замера скорости рендера в миллисекундах.</p>
+                    </details>
+                </div>
+
             </div>
         </section>
     `,
