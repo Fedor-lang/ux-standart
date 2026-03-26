@@ -695,3 +695,35 @@ input:checked + .slider:before {
 }
 
 .chart-fill--red { background: #ef4444; box-shadow: none; }
+/* Глобальная защита от вылетов за экран */
+html, body {
+    overflow-x: hidden; /* Запрещает горизонтальный скролл */
+    width: 100%;
+}
+
+/* Авто-подстройка всех картинок и блоков */
+img, video, canvas, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Специальные правки для маленьких экранов (телефонов) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1rem; /* Уменьшаем боковые отступы на мобилках */
+    }
+    
+    /* Если у тебя есть сетки (grid), заставляем их встать в одну колонку */
+    .features-grid, .stats-grid, .contact-grid, .docs-grid, .ui-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+    }
+
+    .hero__title {
+        font-size: 2.2rem !important; /* Уменьшаем огромные заголовки */
+    }
+    
+    .nav__menu {
+        display: none; /* Скрываем десктопное меню (потом сделаем "бургер") */
+    }
+}
